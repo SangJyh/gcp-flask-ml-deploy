@@ -6,10 +6,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
+    """Return a friendly HTTP greeting."""
+
     import pandas as pd
     import requests
     import io
-    """Return a friendly HTTP greeting."""
+    
     #quote to GOOG historical data
     url = 'https://query1.finance.yahoo.com/v7/finance/download/GOOG'
 
