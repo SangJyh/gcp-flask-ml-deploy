@@ -17,7 +17,7 @@ def hello():
     if r.ok:
         data = r.content.decode('utf8')
         df = pd.read_csv(io.StringIO(data))
-    return df.head()
+    print(df.head())
     #return 'Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day'
 
 @app.route('/echo/<name>')
