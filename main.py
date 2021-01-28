@@ -1,12 +1,24 @@
 from flask import Flask
 from flask import jsonify
+import pandas as pd
+import requests
+
+
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    #print("I am inside hello world")
-    return 'Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day'
+    #quote to AAPL historical data
+    url = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1580232167&period2=1611854567&interval=1d&events=history&includeAdjustedClose=true'
+
+    #url to csv
+    r = requests.get(url)
+    if r.ok:
+        data = r.content.decode('utf8')
+        df = pd.read_csv(io.StringIO(data))
+    return df.head()
+    #return 'Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day'
 
 @app.route('/echo/<name>')
 def echo(name):
