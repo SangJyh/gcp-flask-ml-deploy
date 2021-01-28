@@ -21,8 +21,8 @@ def hello():
         data = r.content.decode('utf8')
         df = pd.read_csv(io.StringIO(data))
     #print('Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day')
-    print(df.to_html())
-    #return 
+    #print()
+    return df.to_html()
 
 @app.route('/echo/<name>')
 def echo(name):
