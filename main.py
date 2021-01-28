@@ -20,7 +20,8 @@ def hello():
     if r.ok:
         data = r.content.decode('utf8')
         df = pd.read_csv(io.StringIO(data))
-    return 'Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day', df.to_html()
+    print('Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day')
+    print(df.to_html())
     #return 
 
 @app.route('/echo/<name>')
