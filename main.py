@@ -9,8 +9,8 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    #quote to AAPL historical data
-    url = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1580232167&period2=1611854567&interval=1d&events=history&includeAdjustedClose=true'
+    #quote to GOOG historical data
+    url = 'https://query1.finance.yahoo.com/v7/finance/download/GOOG'
 
     #url to csv
     r = requests.get(url)
