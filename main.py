@@ -1,13 +1,14 @@
 from flask import Flask
 from flask import jsonify
-import pandas as pd
-import requests
-import io
+
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
+    import pandas as pd
+    import requests
+    import io
     """Return a friendly HTTP greeting."""
     #quote to GOOG historical data
     url = 'https://query1.finance.yahoo.com/v7/finance/download/GOOG'
