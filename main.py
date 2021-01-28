@@ -2,7 +2,7 @@ from flask import Flask
 from flask import jsonify
 import pandas as pd
 import requests
-
+import io
 
 app = Flask(__name__)
 
@@ -16,7 +16,7 @@ def hello():
     r = requests.get(url)
     if r.ok:
         data = r.content.decode('utf8')
-        df = pd.read_csv(io.StringIO(data))
+        df = pd.read_csv(io.StringIO(data),nrows=9)
     print(df.head())
     #return 'Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day'
 
