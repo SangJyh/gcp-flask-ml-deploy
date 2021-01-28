@@ -12,8 +12,8 @@ def hello():
     import requests
     import io
     
-    #quote to GOOG historical data
-    url = 'https://query1.finance.yahoo.com/v7/finance/download/GOOG'
+    #quote historical data
+    url = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1580232167&period2=1611854567&interval=1d&events=history&includeAdjustedClose=true'
 
     #url to csv
     r = requests.get(url)
