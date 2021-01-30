@@ -11,18 +11,14 @@ def hello():
     import pandas as pd
     import requests
     import io
-    
-    #quote historical data
-    url = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1580232167&period2=1611854567&interval=1d&events=history&includeAdjustedClose=true'
+    import pandas_datareader.data as web
 
-    #url to csv
-    r = requests.get(url)
-    if r.ok:
-        data = r.content.decode('utf8')
-        df = pd.read_csv(io.StringIO(data))
-    #print('Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day')
-    #print()
-    return '<h1>AAPL historical stock price</h1>' + df.to_html()
+    stock = "AAPL"
+    end = datetime.date.today()
+    start = today + datetime.timedelta(days=-365)
+    data = web.DataReader(stock, 'yahoo', start, end)
+    return_table = data.to_html()
+    return '<h1>AAPL historical stock price</h1>' + return_table
 
 @app.route('/echo/<name>')
 def echo(name):
