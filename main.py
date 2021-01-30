@@ -11,7 +11,7 @@ def hello():
     import pandas as pd
     import requests
     import io
-    import pandas_datareader.data as web
+    #import pandas_datareader.data as web
 
     #quote to AAPL historical data
     url = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1580232167&period2=1611854567&interval=1d&events=history&includeAdjustedClose=true'#"https://query1.finance.yahoo.com/v7/finance/download/GOOG"
