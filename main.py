@@ -22,7 +22,7 @@ def hello():
         df = pd.read_csv(io.StringIO(data))
     #print('Hi! I am using emacs <br> continue test CI/CD <br> Today is snow day')
     #print()
-    return '<h1>A random dog in the style of Picasso!</h1>' + df.to_html()
+    return '<h1>AAPL historical stock price</h1>' + df.to_html()
 
 @app.route('/echo/<name>')
 def echo(name):
