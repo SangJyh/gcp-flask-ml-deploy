@@ -1,4 +1,4 @@
 flask
 pandas
 requests
-yfinance --upgrade --no-cache-dir
+pandas_datareader
