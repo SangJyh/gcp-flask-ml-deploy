@@ -15,7 +15,7 @@ def hello():
     #import pandas_datareader.data as web
     
     url = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1580232167&period2=1611854567&interval=1d&events=history&includeAdjustedClose=true'#"https://query1.finance.yahoo.com/v7/finance/download/GOOG"
-    url to csv
+    
     r = requests.get(url)
     if r.ok:
         df = r.content.decode('utf8')
