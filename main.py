@@ -22,7 +22,7 @@ def hello():
         data = pd.read_csv(io.StringIO(df))
 
     stock = "AAPL"
-    #end = datetime.date.today()
+    end = datetime.date.today()
     #start = today + datetime.timedelta(days=-365)
     #data = web.DataReader(stock, 'yahoo', start, end)
     #data.to_html()
