@@ -22,10 +22,10 @@ def hello():
     return_table = data.to_html(table_id=stock, justify="center")
     title = '<h1 align="center">{} historical stock price</h1>'.format(stock)
     style = "<style> \
-            {} {\
+            % {\
             margin-left: auto;\
             margin-right: auto; \
-            }</style>".format(stock)
+            }</style>" %(stock)
     return style + title + return_table
 
 @app.route('/echo/<name>')
