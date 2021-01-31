@@ -2,3 +2,4 @@ flask
 pandas
 requests
 datetime
+pandas_datareader
