@@ -11,8 +11,8 @@ def hello():
     import pandas as pd
     import requests
     import io
-    import datetime
-    import pandas_datareader.data as web
+    #import datetime
+    #import pandas_datareader.data as web
     
     url = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1580232167&period2=1611854567&interval=1d&events=history&includeAdjustedClose=true'#"https://query1.finance.yahoo.com/v7/finance/download/GOOG"
     url to csv
