@@ -3,3 +3,4 @@ pandas
 requests
 DateTime
 pandas_datareader
+keras
