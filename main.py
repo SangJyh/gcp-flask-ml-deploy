@@ -23,7 +23,7 @@ def hello():
 
     stock = "AAPL"
     end = datetime.date.today()
-    #start = today + datetime.timedelta(days=-365)
+    start = end + datetime.timedelta(days=-365)
     #data = web.DataReader(stock, 'yahoo', start, end)
     #data.to_html()
     #eturn_table = df.to_html()
