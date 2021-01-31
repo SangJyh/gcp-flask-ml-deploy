@@ -1,5 +1,5 @@
 flask
 pandas
 requests
-datetime
-
+DateTime
+pandas_datareader
