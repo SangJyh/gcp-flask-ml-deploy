@@ -2,4 +2,4 @@ flask
 pandas
 requests
 datetime
-git+https://github.com/pydata/pandas-datareader.git
+
