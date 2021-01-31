@@ -1,4 +1,4 @@
 install-local:
 	pip install -r local-requirements.txt
 install:
-	conda install --yes requirements.txt
+	conda install -r --yes --file requirements.txt
