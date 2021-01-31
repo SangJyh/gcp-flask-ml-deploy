@@ -17,16 +17,13 @@ def hello():
     end = datetime.date.today()
     start = end + datetime.timedelta(days=-365)
     data = web.DataReader(stock, 'yahoo', start, end).reset_index()
-   
+    
     #eturn_table = df.to_html()
-    return_table = data.to_html(table_id=stock, justify="center", classes = "center")
+    return_table = data.to_html(table_id=stock, justify="center")
+    return_table = return_table[:6] + " align = 'center'" + return_table[6:]
     title = '<h1 align="center">{} historical stock price</h1>'.format(stock)
-    style = "<style> \
-            %s {\
-            margin-left: auto;\
-            margin-right: auto; \
-            }</style>" %(stock)
-    return style + title + return_table
+
+    return title + return_table
 
 @app.route('/echo/<name>')
 def echo(name):
