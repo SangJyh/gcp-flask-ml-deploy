@@ -23,7 +23,7 @@ def hello():
     #eturn_table = df.to_html()
     return_table = data.to_html(table_id=stock, justify="center")
     return_table = return_table[:6] + " align = 'center'" + return_table[6:]
-    title = '<h1 align="center">{} historical stock price</h1>'.format(stock)
+    title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
 
     return title + return_table
 
