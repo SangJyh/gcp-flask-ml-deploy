@@ -16,7 +16,7 @@ def hello():
     stock = "AAPL"
     end = datetime.date.today()
     start = end + datetime.timedelta(days=-365)
-    data = pdr.DataReader(stock, 'yahoo', start, end).reset_index()
+    data = pdr.DataReader(stock, 'yahoo', start, end)
     data = data.round(3)
     data["Volume"] = data.apply(lambda x: "{:,.0f}".format(x["Volume"]), axis=1)
     data = data.reset_index()
