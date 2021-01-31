@@ -18,8 +18,8 @@ def hello():
     start = end + datetime.timedelta(days=-365)
     data = pdr.DataReader(stock, 'yahoo', start, end).reset_index()
     data = data.round(3)
-    data = data.reset_index()
     data["Volume"] = data.apply(lambda x: "{:,.0f}".format(x["Volume"]), axis=1)
+    data = data.reset_index()
     #eturn_table = df.to_html()
     return_table = data.to_html(table_id=stock, justify="center")
     return_table = return_table[:6] + " align = 'center'" + return_table[6:]
