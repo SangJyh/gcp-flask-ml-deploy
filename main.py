@@ -20,7 +20,7 @@ def hello():
 
     #eturn_table = df.to_html()
     return_table = data.to_html(table_id=stock, justify="center")
-    title = '<h1>{} historical stock price</h1>'.format(stock)
+    title = '<h1 align="center">{} historical stock price</h1>'.format(stock)
     return title + return_table
 
 @app.route('/echo/<name>')
