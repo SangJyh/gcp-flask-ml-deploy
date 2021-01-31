@@ -13,13 +13,6 @@ def hello():
     import io
     import datetime
     import pandas_datareader.data as web
-    
-    #url = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1580232167&period2=1611854567&interval=1d&events=history&includeAdjustedClose=true'#"https://query1.finance.yahoo.com/v7/finance/download/GOOG"
-    #r = requests.get(url)
-    #if r.ok:
-    #    df = r.content.decode('utf8')
-    #    data = pd.read_csv(io.StringIO(df))
-
     stock = "AAPL"
     end = datetime.date.today()
     start = end + datetime.timedelta(days=-365)
@@ -27,7 +20,8 @@ def hello():
 
     #eturn_table = df.to_html()
     return_table = data.to_html()
-    return '<h1>AAPL historical stock price</h1>' + return_table
+    title = '<h1>{} historical stock price</h1>'.format(stock)
+    return title + return_table
 
 @app.route('/echo/<name>')
 def echo(name):
