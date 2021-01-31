@@ -19,7 +19,7 @@ def hello():
     data = web.DataReader(stock, 'yahoo', start, end).reset_index()
 
     #eturn_table = df.to_html()
-    return_table = data.to_html(table_id=stock, justify="center")
+    return_table = data.to_html()
     title = '<style>h1 {text-align: center;}</style> <h1>{} historical stock price</h1>'.format(stock)
     return title + return_table
 
