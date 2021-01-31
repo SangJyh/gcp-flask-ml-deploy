@@ -22,7 +22,7 @@ def hello():
     return_table = data.to_html(table_id=stock, justify="center")
     title = '<h1 align="center">{} historical stock price</h1>'.format(stock)
     style = "<style> \
-            % {\
+            %s {\
             margin-left: auto;\
             margin-right: auto; \
             }</style>" %(stock)
