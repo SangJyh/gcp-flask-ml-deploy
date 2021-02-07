@@ -6,7 +6,7 @@ import io
 import datetime
 import pandas_datareader.data as pdr
 
-import tensorflow as tf
+#import tensorflow as tf
 #import numpy as np
 #from sklearn.preprocessing import MinMaxScaler
 #import matplotlib.pyplot as plt
@@ -23,7 +23,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    """Return a friendly HTTP greeting."""
+    """Return a table of AAPL stock price features"""
 
     #stock name
     stock = "AAPL"
