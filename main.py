@@ -18,9 +18,6 @@ from keras.layers import Masking
 from keras.optimizers import Adam
 from keras.layers import Flatten
 
-
-app = Flask(__name__)
-
 #ml function
 def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     scaler = MinMaxScaler(feature_range = (0, 1))
@@ -76,7 +73,7 @@ def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     #plt.savefig('my_plot.png')                                                                                                                               
     return result_val[-1, 3]
 
-
+app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a table of AAPL stock price features"""
