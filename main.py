@@ -37,14 +37,16 @@ def hello():
     
     #data preprocessing
     data = data.round(3)
+    #make model based on the original data
+    tomorrow = lstm(data)
+
+    #change data type and index of the datafram for better visualization
     data["Volume"] = data.apply(lambda x: "{:,.0f}".format(x["Volume"]), axis=1)
     data = data.reset_index()
     
     #return the table into html format and modify the look
     return_table = data.to_html(table_id=stock, justify="center")
     return_table = return_table[:6] + " align = 'center'" + return_table[6:]
-    
-    #tomorrow = lstm(data)
     
     #if tomorrow > data["Close"].iloc[-1]:
     #    future = '<h2 align="center">{0} Bull</h2>'
