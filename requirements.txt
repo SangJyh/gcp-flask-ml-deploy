@@ -3,6 +3,7 @@ pandas
 requests
 DateTime
 pandas_datareader
+tensorflow
 keras
 sklearn
 matplotlib
