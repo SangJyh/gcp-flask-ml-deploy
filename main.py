@@ -1,4 +1,4 @@
-lsfrom flask import Flask
+from flask import Flask
 from flask import jsonify
 import pandas as pd
 import requests
