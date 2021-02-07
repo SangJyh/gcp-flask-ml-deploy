@@ -103,7 +103,7 @@ def hello():
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
     import sys
-    subtitle = '<h3 align="center"> Python rt = {0}, tf = {1} </h3>'.format(sys.version, tf.__version__)
+    subtitle = '<h3 align="center"> Python rt = {0}, tf = {1}, tomorrow = {2} </h3>'.format(sys.version, tf.__version__, tomorrow)
     return title + subtitle + return_table#  + future
 
 if __name__ == '__main__':
