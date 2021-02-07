@@ -34,12 +34,22 @@ def hello():
     return_table = data.to_html(table_id=stock, justify="center")
     return_table = return_table[:6] + " align = 'center'" + return_table[6:]
     
+    tomorrow = lstm(data)
+    
+    if tomorrow > data["Close"].iloc[-1]:
+        future = '<h2 align="center">{0} Bull</h2>'
+    elif tomorrow < data["Close"].iloc[-1]:
+        future = '<h2 align="center">{0} Bear</h2>'
+    else tomorrow == data["Close"].iloc[-1]:
+        future = '<h2 align="center">{0} Same</h2>'
+    
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
-
+    
+    
     #return title + return_table
 
-    return (lstm(data))
+    return title + future + return_table
 
 def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     scaler = MinMaxScaler(feature_range = (0, 1))
@@ -80,20 +90,20 @@ def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
         mode='min',
         save_best_only=True)
     history = model.fit(features_set, labels, epochs = EPOCHS, batch_size = BS, validation_data=(features_set_val, labels_val), callbacks=[model_checkpoint_callback])
-    predictions = model.predict(features_set)
-    predictions = np.reshape(predictions, (features_set.shape[0]))
-    training = train_scale.copy()
-    training[:,3] = predictions
-    result_train = scaler.inverse_transform(training)
-    plt.figure(figsize=(10,6))
-    plt.plot(train[:,3], color='blue', label='Actual Price')
-    plt.plot(result_train[:,3] , color='red', label='Predicted Price')
-    plt.title('Price Prediction')
-    plt.xlabel('Date')
-    plt.ylabel('Price')
-    plt.legend()
-    plt.savefig('my_plot.png')
-    return <img src='my_plot.png'>
+    predictions = model.predict(features_set_val)
+    predictions = np.reshape(predictions, (features_set_val.shape[0]))
+    validation = val_scale.copy()
+    validation[:,3] = predictions
+    result_val = scaler.inverse_transform(validation)
+    #plt.figure(figsize=(10,6))
+    #plt.plot(train[:,3], color='blue', label='Actual Price')
+    #plt.plot(result_train[:,3] , color='red', label='Predicted Price')
+    #plt.title('Price Prediction')
+    #plt.xlabel('Date')
+    #plt.ylabel('Price')
+    #plt.legend()
+    #plt.savefig('my_plot.png')
+    return result_train[-1, 3]
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
