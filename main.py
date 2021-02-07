@@ -83,7 +83,7 @@ def hello():
     #data preprocessing
     data = data.round(3)
     #make model based on the original data
-    #tomorrow = lstm(data)
+    tomorrow = lstm(data)
 
     #change data type and index of the datafram for better visualization
     data["Volume"] = data.apply(lambda x: "{:,.0f}".format(x["Volume"]), axis=1)
