@@ -55,7 +55,8 @@ def hello():
     
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
-    
+    import sys
+    subtitle = '<h1 align="center"> runtime = {0} </h1>'.format(sys.version)
     
     #return title + return_table
 
