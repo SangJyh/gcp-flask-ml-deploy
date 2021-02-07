@@ -93,17 +93,17 @@ def hello():
     return_table = data.to_html(table_id=stock, justify="center")
     return_table = return_table[:6] + " align = 'center'" + return_table[6:]
     
-    #if tomorrow > data["Close"].iloc[-1]:
-    #    future = '<h2 align="center">{0} Bull</h2>'
-    #elif tomorrow < data["Close"].iloc[-1]:
-    #    future = '<h2 align="center">{0} Bear</h2>'
-    #else tomorrow == data["Close"].iloc[-1]:
-    #    future = '<h2 align="center">{0} Same</h2>'
+    if tomorrow > data["Close"].iloc[-1]:
+        future = '<h2 align="center">{0} Bull</h2>'
+    elif tomorrow < data["Close"].iloc[-1]:
+        future = '<h2 align="center">{0} Bear</h2>'
+    else tomorrow == data["Close"].iloc[-1]:
+        future = '<h2 align="center">{0} Same</h2>'
     
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
     import sys
-    subtitle = '<h3 align="center"> Python rt = {0}, tf = {1}, tomorrow = {2} </h3>'.format(sys.version, tf.__version__, tomorrow)
+    subtitle = '<h3 align="center"> Python rt = {0}, tf = {1}, tomorrow  = {2} </h3>'.format(sys.version, tf.__version__, future)
     return title + subtitle + return_table#  + future
 
 if __name__ == '__main__':
