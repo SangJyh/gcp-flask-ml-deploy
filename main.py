@@ -34,18 +34,18 @@ def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     val = data[(n*3)//4:n].to_numpy()
     train_scale = scaler.fit_transform(train)
     val_scale = scaler.transform(val)
-    timesteps = 1 ## for future fine tuning                                                                                                                                                       
-    features_set = np.delete(train_scale, 3, axis=1).copy() #.append(apple_training_scaled[i, 0:apple_train.shape[1]-1])                                                                          
+    timesteps = 1 ## for future fine tuning                                                                                                                                                      
+    features_set = np.delete(train_scale, 3, axis=1).copy() #.append(apple_training_scaled[i, 0:apple_train.shape[1]-1])                                                                         
     labels = train_scale[:, 3].copy()
-    features_set_val =  np.delete(val_scale, 3, axis=1).copy() #get the features for training                                                                                                     
-    labels_val =  val_scale[:, 3].copy()       #get the prediction result for training                                                                                                            
+    features_set_val =  np.delete(val_scale, 3, axis=1).copy() #get the features for training                                                                                                    
+    labels_val =  val_scale[:, 3].copy()       #get the prediction result for training                                                                                                           
     features_set = np.reshape(features_set, (features_set.shape[0], timesteps, features_set.shape[1]))
     features_set_val = np.reshape(features_set_val, (features_set_val.shape[0], timesteps, features_set_val.shape[1]))
     opt = Adam(lr=lr, decay=decay / (EPOCHS))
     model = Sequential()
-    model.add(LSTM(units=80, return_sequences=True, input_shape=(features_set.shape[1],features_set.shape[2])))#set first layer and the feature shape for each row                                
+    model.add(LSTM(units=80, return_sequences=True, input_shape=(features_set.shape[1],features_set.shape[2])))#set first layer and the feature shape for each row           
     model.add(LSTM(units=50, return_sequences=True))#set first layer and the feature shape for each row 
-    model.add(LSTM(units=50, return_sequences=True))#set first layer and the feature shape for each row                                                                                           
+    model.add(LSTM(units=50, return_sequences=True))#set first layer and the feature shape for each row                              
     model.add(Dropout(0.29))
     model.add(Flatten())
     model.add(Dense(units = 1,activation='relu'))
@@ -73,7 +73,7 @@ def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     #plt.xlabel('Date')
     #plt.ylabel('Price')
     #plt.legend()
-    #plt.savefig('my_plot.png')                                                                                                                                                                  
+    #plt.savefig('my_plot.png')                                                                                                                               
     return result_val[-1, 3]
 
 
@@ -114,7 +114,7 @@ def hello():
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
     import sys
-    subtitle = '<h3 align="center"> Python rt = {0} <br> tomorrow will be: {1} </h3>'.format(sys.version, tomorrow)
+    subtitle = '<h3 align="center"> Python rt = {0}, tomorrow = {1}  </h3>'.format(sys.version, tomorrow)
     
     #return title + return_table
 
