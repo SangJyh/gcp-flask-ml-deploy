@@ -97,8 +97,7 @@ def hello():
         future = '<h2 align="center">{0} Bull</h2>'
     elif tomorrow < data["Close"].iloc[-1]:
         future = '<h2 align="center">{0} Bear</h2>'
-    else tomorrow == data["Close"].iloc[-1]:
-        future = '<h2 align="center">{0} Same</h2>'
+    else: future = '<h2 align="center">{0} Same</h2>'
     
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
