@@ -49,7 +49,7 @@ def hello():
     
     #return title + return_table
 
-    return title + future + return_table
+    return title + return_table# + future
 
 def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     scaler = MinMaxScaler(feature_range = (0, 1))
