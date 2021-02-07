@@ -10,7 +10,7 @@ import tensorflow as tf
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
-#from keras.models import Sequential
+from keras.models import Sequential
 #from keras.layers import Dense
 #from keras.layers import LSTM
 #from keras.layers import Dropout
