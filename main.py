@@ -108,7 +108,8 @@ def hello():
 @app.route("/<values>")
 def stock(values):
     
-    title = '<h1 align="center">{0} historical stock price'.format(values) 
+    title = '<h1 align="center">{0} historical stock price'.format(values)
+    return title
     
 
 if __name__ == '__main__':
