@@ -8,7 +8,7 @@ import pandas_datareader.data as pdr
 
 #import tensorflow as tf
 import numpy as np
-#from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MinMaxScaler
 #import matplotlib.pyplot as plt
 #from keras.models import Sequential
 #from keras.layers import Dense
