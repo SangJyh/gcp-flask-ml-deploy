@@ -94,16 +94,16 @@ def hello():
     return_table = return_table[:6] + " align = 'center'" + return_table[6:]
     
     if tomorrow > data["Close"].iloc[-1]:
-        future = '<h2 align="center">{0} Bull</h2>'
+        future = '<h3 align="center">Next: Bull</h3>'
     elif tomorrow < data["Close"].iloc[-1]:
-        future = '<h2 align="center">{0} Bear</h2>'
-    else: future = '<h2 align="center">{0} Same</h2>'
+        future = '<h3 align="center">Next: Bear</h3>'
+    else: future = '<h3 align="center">Next: Same</h3>'
     
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
     import sys
-    subtitle = '<h3 align="center"> Python rt = {0}, tf = {1}, tomorrow  = {2} </h3>'.format(sys.version, tf.__version__, future)
-    return title + subtitle + return_table#  + future
+    subtitle = '<h2 align="center"> Python rt = {0}, tf = {1} </h2>'.format(sys.version, tf.__version__)
+    return title + subtitle + future + return_table#  + future
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
