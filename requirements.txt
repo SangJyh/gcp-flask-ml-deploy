@@ -4,7 +4,6 @@ requests
 DateTime
 pandas_datareader
 keras
-tensorflow
 sklearn
 matplotlib
 numpy
