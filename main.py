@@ -22,10 +22,10 @@ from keras.layers import Flatten
 def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     scaler = MinMaxScaler(feature_range = (0, 1))
     n, m = data.shape
-    data["Pre-Close"] = 0
-    for i in range(1, n):
-        data["Pre-Close"].iloc[i] = data["Close"].iloc[i-1].copy()
-    data = data.iloc[1:n].copy()
+#    data["Pre-Close"] = 0
+#    for i in range(1, n):
+#        data["Pre-Close"].iloc[i] = data["Close"].iloc[i-1].copy()
+#    data = data.iloc[1:n].copy()
     n, m = data.shape
     train = data.iloc[0:(n*3)//4].to_numpy()
     val = data[(n*3)//4:n].to_numpy()
