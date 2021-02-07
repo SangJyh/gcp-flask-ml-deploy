@@ -105,5 +105,11 @@ def hello():
     subtitle = '<h2 align="center"> Python rt = {0}, tf = {1} </h2>'.format(sys.version, tf.__version__)
     return title + subtitle + future + return_table#  + future
 
+@app.route("/<values>")
+def stock(values):
+    
+    title = '<h1 align="center">{0} historical stock price'.format(values) 
+    
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
