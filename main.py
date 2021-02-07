@@ -11,12 +11,12 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 from keras.models import Sequential
-#from keras.layers import Dense
-#from keras.layers import LSTM
-#from keras.layers import Dropout
-#from keras.layers import Masking
-#from keras.optimizers import Adam
-#from keras.layers import Flatten
+from keras.layers import Dense
+from keras.layers import LSTM
+from keras.layers import Dropout
+from keras.layers import Masking
+from keras.optimizers import Adam
+from keras.layers import Flatten
 
 
 app = Flask(__name__)
@@ -56,7 +56,7 @@ def hello():
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
     import sys
-    subtitle = '<h3 align="center"> Python runtime = {0} </h3>'.format(sys.version)
+    subtitle = '<h3 align="center"> Python rt = {0} </h3>'.format(sys.version)
     
     #return title + return_table
 
