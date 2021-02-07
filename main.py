@@ -49,7 +49,7 @@ def hello():
     
     #return title + return_table
 
-    return title + return_table# + future
+    return title  + return_table# + future
 
 def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     scaler = MinMaxScaler(feature_range = (0, 1))
@@ -97,13 +97,13 @@ def lstm(data, BS=3, EPOCHS=20, lr = 0.001, decay = 0.23):
     result_val = scaler.inverse_transform(validation)
     #plt.figure(figsize=(10,6))
     #plt.plot(train[:,3], color='blue', label='Actual Price')
-    #plt.plot(result_train[:,3] , color='red', label='Predicted Price')
+    #plt.plot(result_val[:,3] , color='red', label='Predicted Price')
     #plt.title('Price Prediction')
     #plt.xlabel('Date')
     #plt.ylabel('Price')
     #plt.legend()
     #plt.savefig('my_plot.png')
-    return result_train[-1, 3]
+    return result_val[-1, 3]
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080, debug=True)
