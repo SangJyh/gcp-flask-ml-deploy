@@ -5,7 +5,7 @@ import requests
 import io
 import datetime
 import pandas_datareader.data as pdr
-
+import sys
 import tensorflow as tf
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
@@ -69,9 +69,16 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a table of AAPL stock price features"""
+    values = "Sang-Jyh's"
+    title = '<h1 align="center">{0} historical stock price website'.format(values)
+    return title
+
+@app.route("/<values>")
+def stock(values):
+        """Return a table of 'value' stock price features"""
 
     #stock name
-    stock = "AAPL"
+    stock = values
     
     #set up the start and end time point I want
     end = datetime.date.today()
@@ -101,15 +108,10 @@ def hello():
     
     # add header
     title = '<h1 align="center">{0} historical stock price (from {1} to {2})</h1>'.format(stock, start, end)
-    import sys
-    subtitle = '<h2 align="center"> Python rt = {0}, tf = {1} </h2>'.format(sys.version, tf.__version__)
-    return title + subtitle + future + return_table#  + future
 
-@app.route("/<values>")
-def stock(values):
+    subtitle = '<h2 align="center"> Python rt = {0}, tf = {1} </h2>'.format(sys.version, tf.__version__)
     
-    title = '<h1 align="center">{0} historical stock price'.format(values)
-    return title
+    return title + subtitle + future + return_table#  + future
     
 
 if __name__ == '__main__':
