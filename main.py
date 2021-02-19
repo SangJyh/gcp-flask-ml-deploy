@@ -69,13 +69,14 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     """Return a table of AAPL stock price features"""
+    
     values = "Sang-Jyh's"
     title = '<h1 align="center">{0} historical stock price website'.format(values)
     return title
 
 @app.route("/<values>")
 def stock(values):
-        """Return a table of 'value' stock price features"""
+    """Return a table of 'value' stock price features"""
 
     #stock name
     stock = values
